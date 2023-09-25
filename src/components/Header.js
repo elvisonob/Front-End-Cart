@@ -3,7 +3,6 @@ import React from 'react';
 export default function Header(props) {
   const { numberCart } = props;
 
-  const cartNumber = numberCart.reduce((a, curr) => a + curr.qty, 0);
   return (
     <header className="row block center">
       <div>
@@ -12,7 +11,10 @@ export default function Header(props) {
         </a>
       </div>
       <div>
-        <a href="#/cart">{cartNumber}</a>
+        <a href="#/cart">
+          Cart{' '}
+          {numberCart ? <button className="badge">{numberCart}</button> : ''}
+        </a>
 
         <a href="#/signin">SignIn</a>
       </div>
